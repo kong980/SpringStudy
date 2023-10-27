@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
+        
+  	<!-- HandlerMapping  -->
+  	<bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
+  		<property name="order" value="2"></property>
+  	</bean>
+    <bean class="org.springframework.web.servlet.handler.SimpleUrlHandlerMapping">
+    	<property name="order" value="1"></property>
+	    <!-- //setter 메소드 호출 -->
+    	<property name="mappings">
+    		<props>
+    			<!-- //mapping된 것을 묶어서 한 번에 볼 수 있는 --> 
+    			<!-- <prop key="/">indexController</prop> -->
+    			<prop key="/first">firstController</prop>
+    			<prop key="/second">secondController</prop>
+    			<prop key="/third">thirdController</prop>
+    		</props>
+    	</property>
+    </bean>
+   
+    <!-- <bean id="indexController" class="com.example.controller.IndexController" /> -->
+    <bean id="firstController" class="com.example.controller.FirstController" />
+    <bean id="secondController" class="com.example.controller.SecondController" />
+    <bean id="thirdController" class="com.example.controller.ThirdController" />
+     
+    <!-- 객체 생성 -->
+    <!-- <bean name="/" class="com.example.controller.IndexController" /> --> 
+    <bean name="/first" class="com.example.controller.FirstController" />
+    <bean name="/second" class="com.example.controller.SecondController" />
+    <bean name="/third" class="com.example.controller.ThirdController" />
+    
+    
+</beans>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 1. Web.xml 파일과 같은 위치에 둔다
+	 2. 이름은 (servlet-name)-servlet.xml -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd">
+    <!-- 객체 생성  name=mapping과 같은 속성 spirng1.action이란 요청이 들어오면 너가 실행해라 -->
+    <bean name="/spring1.action" class="controller.SpringController" />	
+    <bean name="/spring2.action" class="controller.SpringController2" />	
+</beans>

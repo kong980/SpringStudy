@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd">
+            
+    <!-- View Resolver -->
+    <!-- InternalResourceViewResolver는 마지막 우선 순위를 갖도록 지정해야 함
+    	 InternalResourceViewResolver는 항상 뷰 이름에 매핑되는 뷰 객체를 리턴하기 때문에 null을 리턴하지 않음.
+      - 따라서 InternalResourceViewResolver의 우선순위가 높을 경우 우선순위가 낮은 ViewResolver는 사용되지 않게 됨.
+     -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    	<property name="order" value="1"></property>
+    	<!-- 어떤 view에게 보여질것인지 -->
+    	<property name="viewClass">
+    		<value>org.springframework.web.servlet.view.InternalResourceView</value>
+    	</property>
+    	<!-- 접미사 : 모든 view 파일에는 .jsp를 붙일 필요가 없어-->
+    	<property name="suffix">
+    		<value>.jsp</value>
+    	</property>
+    	<!-- 접두사 : /WEB-INF/views/ 생략가능 -->
+    	<property name="prefix">
+    		<value>/WEB-INF/views/</value>
+    	</property>
+    </bean>
+    
+    <!-- ViewResolver -->
+    <bean class="org.springframework.web.servlet.view.ResourceBundleViewResolver">
+    	<!-- 별도의 설정은 파일에서 해준다. -->
+    	<!-- resources : 외부파일 저장 images, js, css, front-end까지 섞지않고 back-end단의것
+    		bundleview.properties -> .properties -> 환경설정과 관련된 속성을 저장하는데 사용
+    		webapp-resources를 만들어서(front-end)
+    		value="bundleview" : 확장자 이름 쓸 필요없이 파일 이름만 사용해주면된다. 
+    	 -->
+    	<property name="basename" value="bundleview"></property>
+    	<property name="order" value="0"></property>
+    </bean>
+</beans>
