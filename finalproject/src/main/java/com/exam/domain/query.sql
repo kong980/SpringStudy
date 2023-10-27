@@ -22,3 +22,5 @@ CREATE TABLE simpleMember(
 );
 
 CREATE SEQUENCE seq_id;
+
+SELECT * FROM SIMPLEBOARD;

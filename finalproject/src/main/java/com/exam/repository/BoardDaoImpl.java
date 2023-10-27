@@ -1,4 +1,4 @@
-package com.exam.service;
+package com.exam.repository;
 
 import java.util.List;
 

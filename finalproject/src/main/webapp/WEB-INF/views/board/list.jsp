@@ -20,8 +20,8 @@
 			<td>조회수</td>			
 		</tr>
 		<tr>
-			<td></td>
-			<td></td>
+			<td>${board.bNo}</td>
+			<td${board.bTitle}></td>
 			<td></td>
 			<td></td>
 			<td></td>			
