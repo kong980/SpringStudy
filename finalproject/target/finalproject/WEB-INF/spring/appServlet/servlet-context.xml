@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns:beans="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns="http://www.springframework.org/schema/mvc"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+        https://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        https://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/mvc 
+		https://www.springframework.org/schema/mvc/spring-mvc.xsd">
+    <!-- annotation-driven 어노테이션-->
+    <annotation-driven />  
+    
+    <!-- Front End Resources mapping="url에 보여질 주소" location="파일이 위치해있는 실제 경로" -->
+    <resources mapping="/**" location="/resources/" />
+     
+    <!-- View Resolver   
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+    	<property name="prefix" vlaue="/WEB-INF/views/" /> 
+    	<property name="suffix" vlaue=".jsp" />   	
+    </bean>
+     -->
+    <!-- MVC 이용 View Resolver 클래스를 넣어줄 필요가 없음 -->
+    <view-resolvers>
+    	<jsp prefix="/WEB-INF/views/" />
+    	<jsp suffix=".jsp"/>
+    </view-resolvers>
+    
+    <view-controller path="/" view-name="index"/>
+    <context:component-scan base-package="com.exam" /> 
+</beans:beans>

@@ -6,5 +6,7 @@
 	<!-- 별칭을 달아준다.  -->
 	<typeAliases>
 		<typeAlias type="com.exam.domain.Board" alias="Board" />
+		<typeAlias type="com.exam.domain.Member" alias="Member" />
+		<typeAlias type="com.exam.domain.RegisterRequest" alias="RegisterRequest" />
 	</typeAliases>
 </configuration>  

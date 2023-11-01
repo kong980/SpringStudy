@@ -18,14 +18,13 @@ public class BoardServiceImpl implements BoardService {
 
 	@Override
 	public List<Board> getList() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		List<Board> list = boardDao.getList();
+		return list;
 	}
 
 	@Override
 	public Board read(int bNo) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return boardDao.read(bNo);
 	}
 
 	@Override
@@ -34,21 +33,17 @@ public class BoardServiceImpl implements BoardService {
 		// dao.write(board);
 		
 		//DB에 저장좀 시켜줘
-		boardDao.write(board);
-		
-
+		boardDao.write(board);	
 	}
 
 	@Override
 	public void update(Board board) throws Exception {
-		// TODO Auto-generated method stub
-
+		boardDao.update(board);
 	}
 
 	@Override
 	public void delete(int bNo) throws Exception {
-		// TODO Auto-generated method stub
-
+		boardDao.delete(bNo);
 	}
 
 }

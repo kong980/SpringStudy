@@ -21,31 +21,28 @@ public class BoardDaoImpl implements BoardDao {
 	
 	@Override
 	public List<Board> getList() throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.selectList(NAMESPACE + ".getList");
 	}
 
 	@Override
 	public Board read(int bNo) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		return sqlSession.selectOne(NAMESPACE + ".read", bNo);
 	}
 
 	@Override
 	public int write(Board board) throws Exception {
-		return sqlSession.insert(NAMESPACE + ".write", board);
+		return sqlSession.insert(NAMESPACE + ".write", board); //board라는 파라미터를 전달
 	}
 
 	@Override
 	public int update(Board board) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.update(NAMESPACE + ".update", board);
+
 	}
 
 	@Override
 	public int delete(int bNo) throws Exception {
-		// TODO Auto-generated method stub
-		return 0;
+		return sqlSession.delete(NAMESPACE + ".delete", bNo);
 	}
 
 }

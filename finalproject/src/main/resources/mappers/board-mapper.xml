@@ -4,8 +4,25 @@
 <!-- SQL문 작성 -->
 <mapper namespace="com.exam.mybatis.boardMapper">
 	<!-- id="본인 마음대로 지어도 된다. 이 이름으로 dao에서 호출"  -->
-	<insert id="write" parameterType="Board">
+	<!-- com.exam.mybatis.boardMapper.write -->
+	<insert id="write" parameterType="Board"> <!-- 파라미터로 board를 가져오기 위해 parameterType을 사용 -->
 		INSERT INTO simpleBoard(bNo, bTitle, bWriter, bContent)
 		VALUES(seq_bno.nextVal, #{bTitle}, #{bWriter}, #{bContent})
 	</insert>
+	
+	<select id="getList" resultType="Board"> <!--resultType : 어떤 타입으로 데이터를 넘겨주느냐? Board 타입으로 넘겨준다~ -->
+		SELECT * FROM simpleBoard ORDER BY bNo DESC 
+	</select>
+	
+	<select id="read" resultType="Board" parameterType="int">
+		SELECT * FROM simpleBoard where bNo = #{bno}
+	</select>
+	
+	<delete id="delete" parameterType="int">
+		DELETE FROM simpleBoard where bNo = #{bno}
+	</delete>
+	
+	<update id="update" parameterType="Board">
+		UPDATE simpleBoard SET bTitle = #{bTitle}, bContent = #{bContent} WHERE bNo = #{bNo}
+	</update>
 </mapper>
