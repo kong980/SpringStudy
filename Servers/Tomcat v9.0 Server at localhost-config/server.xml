@@ -164,7 +164,7 @@
 		
 		
 		
-      <Context docBase="finalproject" path="/finalproject" reloadable="true" source="org.eclipse.jst.jee.server:finalproject"/></Host>
+      <Context docBase="go" path="/go" reloadable="true" source="org.eclipse.jst.j2ee.server:go"/><Context docBase="finalproject2" path="/finalproject" reloadable="true" source="org.eclipse.jst.jee.server:finalproject2"/></Host>
     </Engine>
   </Service>
 </Server>

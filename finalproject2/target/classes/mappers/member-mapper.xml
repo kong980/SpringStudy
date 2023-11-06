@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+    
+<!-- SQL문 작성 -->
+<mapper namespace="com.exam.mybatis.memberMapper">
+
+<!-- 회원가입 -->
+	<insert id="insertMember" parameterType="RegisterRequest">
+		INSERT INTO simpleMember(id, name, email, password, regdate)
+		VALUES(seq_id.nextVal, #{name}, #{email}, #{password}, sysdate)
+	</insert>
+	
+<!-- email, pw 조회 -->	
+	<select id="selectWithPass" parameterType="RegisterRequest" resultType="Member">
+		SELECT * FROM simpleMember
+		WHERE email = #{email} and password = #{password}
+	</select>
+	
+</mapper>
